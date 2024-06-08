@@ -39,8 +39,8 @@ class Calendariocolombiano:
     def _calcular_festivos_moviles(self, año):
         pascua = self._calcular_pascua(año)
         festivos_moviles = [
-            (pascua - timedelta(days=3)),  # Jueves Santo
-            (pascua - timedelta(days=2)),  # Viernes Santo
+            (pascua + timedelta(days=-3)),  # Jueves Santo
+            (pascua + timedelta(days=-2)),  # Viernes Santo
             (pascua + timedelta(days=43)),  # Ascensión de Jesús
             (pascua + timedelta(days=64)),  # Corpus Christi
             (pascua + timedelta(days=71)),  # Sagrado Corazón

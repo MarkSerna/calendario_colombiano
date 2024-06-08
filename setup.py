@@ -8,7 +8,7 @@ setup(
     description='Biblioteca para manejar el calendario colombiano con festivos y fechas especiales',
     author='Marco Eduar Serna Lopez',
     author_email='marcoesernal@gmail.com',
-    url='https://github.com/tu_usuario/calendario_colombiano',
+    url='https://github.com/MarkSerna/calendario_colombiano',
     classifiers=[
         'Programming Language :: Python :: 3',
         'License :: OSI Approved :: MIT License',
