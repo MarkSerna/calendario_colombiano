@@ -3,3 +3,31 @@ __pycache__/
 
 # Ignorar información del paquete de Python
 calendario_colombiano.egg-info/
+
+#Ignorar la carpeta de distribución
+dist/
+
+# Ignorar la carpeta de construcción
+build/
+
+# Ignorar archivos de configuración de Python
+*.pyc
+
+# Ignorar archivos de configuración de Python
+*.pyo
+
+# Ignorar archivos de configuración de Python
+*.pyd
+
+# Ignorar archivos de configuración de Python
+*.pyw
+
+# Ignorar archivos de configuración de Python
+*.pyz
+
+# Ignorar archivos de configuración de Python
+*.pywz
+
+# Ignorar los entornos virtuales de Python
+venv/
+
