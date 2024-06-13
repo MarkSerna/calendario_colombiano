@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: calendario_colombiano
+Version: 0.1
+Summary: Biblioteca para manejar el calendario colombiano con festivos y fechas especiales
+Home-page: https://github.com/MarkSerna/calendario_colombiano
+Author: Marco Eduar Serna Lopez
+Author-email: marcoesernal@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent

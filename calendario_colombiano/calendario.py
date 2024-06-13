@@ -1,7 +1,7 @@
 import datetime
 from datetime import timedelta
 
-class Calendariocolombiano:
+class CalendarioColombiano:
     def __init__(self):
         self.festivos_fijos = [
             (1, 1),  # Año Nuevo
@@ -11,18 +11,18 @@ class Calendariocolombiano:
             (12, 8),  # Inmaculada Concepción
             (12, 25),  # Navidad
         ]
-        
+
     def _es_lunes(self, fecha):
         return fecha.weekday() == 0
-    
+
     def _proximo_lunes(self, fecha):
         return fecha + timedelta(days=(7 - fecha.weekday()))
-    
-    def _calcular_pascua(self, año):
+
+    def _calcular_pascua(self, anio):
         # Algoritmo de Butcher
-        a = año % 19
-        b = año // 100
-        c = año % 100
+        a = anio % 19
+        b = anio // 100
+        c = anio % 100
         d = b // 4
         e = b % 4
         f = (b + 8) // 25
@@ -34,35 +34,32 @@ class Calendariocolombiano:
         m = (a + 11 * h + 22 * l) // 451
         mes = (h + l - 7 * m + 114) // 31
         dia = ((h + l - 7 * m + 114) % 31) + 1
-        return datetime.date(año, mes, dia)
-    
-    def _calcular_festivos_moviles(self, año):
-        pascua = self._calcular_pascua(año)
+        return datetime.date(anio, mes, dia)
+
+    def _calcular_festivos_moviles(self, anio):
+        pascua = self._calcular_pascua(anio)
         festivos_moviles = [
-            (pascua + timedelta(days=-3)),  # Jueves Santo
-            (pascua + timedelta(days=-2)),  # Viernes Santo
-            (pascua + timedelta(days=43)),  # Ascensión de Jesús
-            (pascua + timedelta(days=64)),  # Corpus Christi
-            (pascua + timedelta(days=71)),  # Sagrado Corazón
+            (pascua - timedelta(days=3)),  # Jueves Santo
+            (pascua - timedelta(days=2)),  # Viernes Santo
+            self._proximo_lunes(pascua + timedelta(days=39)),  # Ascensión de Jesús (6 semanas después)
+            self._proximo_lunes(pascua + timedelta(days=60)),  # Corpus Christi (9 semanas después)
+            self._proximo_lunes(pascua + timedelta(days=67)),  # Sagrado Corazón (10 semanas después)
         ]
         return festivos_moviles
     
-    def _calcular_festivos_colombianos(self, año):
+    def _calcular_festivos_colombianos(self, anio):
         festivos = []
         for mes, dia in self.festivos_fijos:
-            fecha = datetime.date(año, mes, dia)
-            if self._es_lunes(fecha):
-                festivos.append(fecha)
-            else:
-                festivos.append(self._proximo_lunes(fecha))
+            fecha = datetime.date(anio, mes, dia)
+            festivos.append(fecha)
                 
-        festivos.extend(self._calcular_festivos_moviles(año))
+        festivos.extend(self._calcular_festivos_moviles(anio))
         return festivos
     
     def es_festivo(self, fecha):
-        año = fecha.year
-        festivos = self._calcular_festivos_colombianos(año)
+        anio = fecha.year
+        festivos = self._calcular_festivos_colombianos(anio)
         return fecha in festivos
     
-    def obtener_festivos(self, año):
-        return self._calcular_festivos_colombianos(año)
+    def obtener_festivos(self, anio):
+        return self._calcular_festivos_colombianos(anio)
