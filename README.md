@@ -46,7 +46,7 @@ print(f"El próximo festivo es: {proximo_festivo}")
 
 ### Licencia
 
-Este proyecto está bajo la Licencia MIT - ver el archivo LICENSE para más detalles.
+Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](https://github.com/MarkSerna/calendario_colombiano/blob/main/LICENSE) para más detalles.
 
 
 ### Contacto
