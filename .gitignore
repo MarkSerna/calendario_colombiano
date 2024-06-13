@@ -1,2 +1,5 @@
+# Ignorar carpetas generadas por Python
 __pycache__/
-calendario_colombiano.egg-info
+
+# Ignorar información del paquete de Python
+calendario_colombiano.egg-info/
